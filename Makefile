@@ -1,8 +1,12 @@
-prog1: main.c
-	gcc main.c -o prog1
+CC      := gcc
+CFLAGS  := -Wall -Wextra -O2 -std=gnu11 -D_DEFAULT_SOURCE
 
-prog2: main2.c
-	gcc main2.c -o prog2
+.PHONY: all clean
+
+all: my3proc
 
 my3proc: main3.c
-	gcc main3.c -o my3proc
+	$(CC) $(CFLAGS) -o $@ $<
+
+clean:
+	rm -f my3proc
